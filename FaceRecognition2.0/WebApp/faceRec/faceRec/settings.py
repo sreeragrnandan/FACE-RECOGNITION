@@ -27,12 +27,11 @@ SECRET_KEY = '_nm#_7qzr$gvzzo1s2)f-&ue4lxxs!6+5=r956(9j=tsvfx12*'
 DEBUG = True
 
 #GMAIL CONNECTION
-ALLOWED_HOSTS = []
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'youremail@gmail.com'
-EMAIL_HOST_PASSWORD = 'email_password'
+EMAIL_HOST_USER = 'facerecogni2k18@gmail.com'
+EMAIL_HOST_PASSWORD = 'face@123'
 EMAIL_PORT = 587
 #GMAIL CONNECTION !
 

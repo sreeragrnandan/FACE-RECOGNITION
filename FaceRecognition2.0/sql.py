@@ -1,6 +1,5 @@
 
 import pymysql
-import re
 #database connection
 connection = pymysql.connect(host="localhost",port=3307, user="root", passwd="", database="face_recognition")
 cursor = connection.cursor()

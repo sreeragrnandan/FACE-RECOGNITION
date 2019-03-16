@@ -93,15 +93,15 @@ while True:
             face_names.append(name)
 
             # queries for retrievint all rows
-            retriveNAME = "SELECT name FROM observations WHERE id=(SELECT max(id) FROM observations);"
-            retriveCAM = "SELECT cam FROM observations WHERE id=(SELECT max(id) FROM observations);"
+            retriveNAME = "SELECT name FROM contacts_contact WHERE id=(SELECT max(id) FROM contacts_contact);"
+            retriveCAM = "SELECT cam FROM contacts_contact WHERE id=(SELECT max(id) FROM contacts_contact);"
             #executing the quires
             cursor.execute(retriveNAME)
             
             Featched_name = cursor.fetchall()
             obsName = ','.join(map(','.join,Featched_name))
-            camid = "c2"
-            retriveCAM = "SELECT cam FROM observations WHERE id=(SELECT max(id) FROM observations);"
+            camid = "c3"
+            retriveCAM = "SELECT cam FROM contacts_contact WHERE id=(SELECT max(id) FROM contacts_contact);"
             cursor.execute(retriveCAM)
             Featched_cam = cursor.fetchall()
 
@@ -109,9 +109,9 @@ while True:
 
             if name !="Unknown" and (name != obsName or camid != cam) :
                 # queries for inserting values
-                # insert1 = "INSERT INTO observations(name, cam) VALUES( %s, 'c1' );",name
+                # insert1 = "INSERT INTO contacts_contact(name, cam) VALUES( %s, 'c1' );",name
                 #executing the quires
-                cursor.execute("INSERT INTO observations(name, cam) VALUES( %s, %s );",(name,camid))
+                cursor.execute("INSERT INTO contacts_contact(name, cam) VALUES( %s, %s );",(name,camid))
     process_this_frame = not process_this_frame
 
 
