@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'contacts/styles.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <!-- template -->
+    <!-- Team -->
+<section id="team" class="pb-5">
+        <div class="container">
+            <h5 class="section-title h1">Welcome to Contact</h5>
+            <br>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Contacts..">
+            <ul id="myUL">
+            {% if contact %}
+            <div class="row">
+                    {% for con in contact %}
+                <!-- Team member -->
+               <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: left;margin: 10px;max-width: 22.5rem;min-width: 22.5rem;">
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <p><img class=" img-fluid" src="{% static 'contacts/images/kakkassery_w.jpg' %}" alt="card image"></p>
+                                       <h4 class="card-title">NAME : {{ con.name }}</h4>
+                                        <p class="card-text">COUGHT AT CAMERA : {{con.cam}}</p>
+                                        <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="backside" style="min-width: 20.5rem;">
+                                <div class="card">
+                                    <div class="card-body text-center mt-4">
+                                        <h4 class="card-title">DETAILES : {{ con.Name }}</h4>
+                                        <p class="card-text"><br>{{con.Qualification}}</p>
+                                        <div class="list-inline">
+                                            <div class="list-inline-item">
+                                                <i class="far fa-envelope"></i>&nbsp;
+                                                <a class="social-icon text-xs-center" target="_blank" href="mailto:{{ con.Email }}">
+                                                    {{ con.Email }}
+                                                </a>
+                                            </div>
+                                            <br>
+                                            <div class="list-inline-item">
+                                                    <i class="fas fa-phone-volume"></i> &nbsp;
+                                                <a class="social-icon text-xs-center" target="_blank" href="tel:{{con.Phone_Number}}">
+                                                    {{ con.Phone_Number }}
+                                                </a>
+                                            </div>
+                                            <br> <br>
+                                            <div class="list-inline-item">
+                                                    <i class="far fa-square"></i>
+                                            </div>
+                                            <div class="list-inline-item">
+                                                    <i class="far fa-square"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+                <!-- ./Team member -->
+                {% endfor %}
+            </div>
+            
+        </div>
+        {% else %}
+            <p>No access records found!</p>
+            {% endif %}
+        </ul>
+    </section>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- template end -->
+    
+    
+    <script>
+        function myFunction() {
+          // Declare variables
+          var input, filter, ul, li, a, i, txtValue;
+          input = document.getElementById('myInput');
+          filter = input.value.toUpperCase();
+          ul = document.getElementById("myUL");
+          li = ul.getElementsByTagName('li');
+        
+          // Loop through all list items, and hide those who don't match the search query
+          for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("div")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              li[i].style.display = "";
+            } else {
+              li[i].style.display = "none";
+            }
+          }
+        }
+        </script>
+</body>
+</html>
