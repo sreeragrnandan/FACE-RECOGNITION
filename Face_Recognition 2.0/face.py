@@ -1,5 +1,12 @@
 import face_recognition
 import cv2
+import pymysql
+import re
+
+#database connection
+connection = pymysql.connect(host="localhost", port=3307 ,user="root",passwd="",database="face_recognition" )
+cursor = connection.cursor()
+
 
 # This is a demo of running face recognition on live video from your webcam. It's a little more complicated than the
 # other example, but it includes some basic performance tweaks to make things run a lot faster:
@@ -83,9 +90,19 @@ while True:
             if True in matches:
                 first_match_index = matches.index(True)
                 name = known_face_names[first_match_index]
-
             face_names.append(name)
+            # queries for retrievint all rows
+            retrive = "SELECT name FROM observations WHERE id=(SELECT max(id) FROM observations);"
 
+            #executing the quires
+            cursor.execute(retrive)
+            Featched_name = cursor.fetchall()
+            str = ','.join(map(','.join,Featched_name))
+            if name !="Unknown" and name != str :
+                # queries for inserting values
+                # insert1 = "INSERT INTO observations(name, cam) VALUES( %s, 'c1' );",name
+                #executing the quires
+                cursor.execute("INSERT INTO observations(name, cam) VALUES( %s, 'c1' );",name)
     process_this_frame = not process_this_frame
 
 
@@ -115,3 +132,6 @@ while True:
 # Release handle to the webcam
 video_capture.release()
 cv2.destroyAllWindows()
+#commiting the connection then closing it.
+connection.commit()
+connection.close()
