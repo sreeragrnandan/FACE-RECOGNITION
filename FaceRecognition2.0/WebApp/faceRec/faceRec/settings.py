@@ -36,7 +36,7 @@ EMAIL_PORT = 587
 #GMAIL CONNECTION !
 
 # Application definition
-
+ALLOWED_HOSTS = ['192.168.8.100']
 INSTALLED_APPS = [
     'contacts',
     'django.contrib.admin',

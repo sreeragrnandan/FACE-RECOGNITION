@@ -1,0 +1,68 @@
+<ul id="myUL">
+    {% if contact %}
+    <script>
+        var j=0;
+    </script>
+    <div class="row" >
+            {% for con in contact %}
+        <!-- Team member -->
+       <li name="MyLi"> <div class="col-xs-12 col-sm-6 col-md-4" style="float: right;margin: 10px;max-width: 22.5rem;min-width: 22.5rem;">
+        <script>
+        j++;
+        </script>
+            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                <div class="mainflip">
+                    <div class="frontside">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <!-- {% static "" as baseUrl %} -->
+                                <p><img class=" img-fluid" src="{{ baseUrl }}contacts/images/{{con.name}}.jpg " alt="card image"></p>
+                               <h4 class="card-title">NAME : {{ con.name }}</h4>
+                                <p class="card-text">COUGHT AT CAMERA : {{con.cam}}</p>
+                                <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="backside" style="min-width: 20.5rem;">
+                        <div class="card">
+                            <div class="card-body text-center mt-4">
+                                <h4 class="card-title">DETAILES : {{ con.Name }}</h4>
+                                <p class="card-text"><br>{{con.Qualification}}</p>
+                                <div class="list-inline">
+                                    <div class="list-inline-item">
+                                        <i class="far fa-envelope"></i>&nbsp;
+                                        <a class="social-icon text-xs-center" target="_blank" href="mailto:{{ con.Email }}">
+                                            {{ con.Email }}
+                                        </a>
+                                    </div>
+                                    <br>
+                                    <div class="list-inline-item">
+                                            <i class="fas fa-phone-volume"></i> &nbsp;
+                                        <a class="social-icon text-xs-center" target="_blank" href="tel:{{con.Phone_Number}}">
+                                            {{ con.Phone_Number }}
+                                        </a>
+                                    </div>
+                                    <br> <br>
+                                    <div class="list-inline-item">
+                                            <i class="far fa-square"></i>loaded page
+                                    </div>
+                                    <div class="list-inline-item">
+                                            <i class="far fa-square"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+        <!-- ./Team member -->
+        {% endfor %}
+    </div>
+    
+</div>
+{% else %}
+    <p>No access records found!</p>
+    {% endif %}
+</ul>

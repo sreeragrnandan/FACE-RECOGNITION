@@ -33,11 +33,11 @@ def contacts(request):
     'facerecogni2k18@gmail.com',
     ['sreerag.cs17@jecc.ac.in','sreeragraghunandan@gmail.com'],
     fail_silently=False
-)
-
+    )
     return render(request, 'contacts/contacts.html', context=date_dict)
 connection.commit()
 connection.close()
+
 # def index(request):
 #     mydict  = {
 #         'insert_me':"contect should be display here!"

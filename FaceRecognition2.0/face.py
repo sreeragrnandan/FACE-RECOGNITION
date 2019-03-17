@@ -100,7 +100,7 @@ while True:
             
             Featched_name = cursor.fetchall()
             obsName = ','.join(map(','.join,Featched_name))
-            camid = "c3"
+            camid = "c10"
             retriveCAM = "SELECT cam FROM contacts_contact WHERE id=(SELECT max(id) FROM contacts_contact);"
             cursor.execute(retriveCAM)
             Featched_cam = cursor.fetchall()
