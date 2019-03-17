@@ -25,36 +25,36 @@ vinod_image = face_recognition.load_image_file("images/amma.png")
 vinod_face_encoding = face_recognition.face_encodings(vinod_image)[0]
 
 # Load a second sample picture and learn how to recognize it.
-swapna_image = face_recognition.load_image_file("images/swapna.jpg")
-swapna_face_encoding = face_recognition.face_encodings(swapna_image)[0]
+# swapna_image = face_recognition.load_image_file("images/swapna.jpg")
+# swapna_face_encoding = face_recognition.face_encodings(swapna_image)[0]
 
 # Load a third sample picture and learn how to recognize it.
 sreerag_image = face_recognition.load_image_file("images/sreerag.jpg")
 sreerag_face_encoding = face_recognition.face_encodings(sreerag_image)[0]
 
 # Load a forth sample picture and learn how to recognize it.
-shaiju_image = face_recognition.load_image_file("images/shaiju.jpg")
-shaiju_face_encoding = face_recognition.face_encodings(shaiju_image)[0]
+# shaiju_image = face_recognition.load_image_file("images/shaiju.jpg")
+# shaiju_face_encoding = face_recognition.face_encodings(shaiju_image)[0]
 
 # Load a fifth sample picture and learn how to recognize it.
-anil_image = face_recognition.load_image_file("images/anil.jpg")
-anil_face_encoding = face_recognition.face_encodings(anil_image)[0]
+# anil_image = face_recognition.load_image_file("images/anil.jpg")
+# anil_face_encoding = face_recognition.face_encodings(anil_image)[0]
 
 # Create arrays of known face encodings and their names
 known_face_encodings = [
-    vinod_face_encoding,
-    swapna_face_encoding,
+    # vinod_face_encoding,
+    # swapna_face_encoding,
     sreerag_face_encoding,
-    shaiju_face_encoding,
-    anil_face_encoding
+    # shaiju_face_encoding,
+    # anil_face_encoding
     
 ]
 known_face_names = [
-    "suneethi",
-    "swapna",
+    # "suneethi",
+    # "swapna",
     "sreerag",
-    "shaiju",
-    "Anil"
+    # "shaiju",
+    # "Anil"
 
 ]
 
