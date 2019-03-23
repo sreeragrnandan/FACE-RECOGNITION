@@ -31,14 +31,14 @@ while 1:
             cursor.execute(retriveCAM)
             Featched_cam = cursor.fetchall()
             cam = ','.join(map(','.join,Featched_cam))
-
-            TO = 'sreeragraghunandan@gmail.com'
+            
+            TO = 'recivers id'
             SUBJECT = 'CENTRAL MONITORING SYSTEM'
             TEXT =  obsName +' spoted at '+cam
             print(TEXT)
             # Gmail Sign In
-            gmail_sender = '<your gmail address>'
-            gmail_passwd = '<your password>'
+            gmail_sender = 'your gmail address'
+            gmail_passwd = 'your password'
 
             server = smtplib.SMTP('smtp.gmail.com', 587)
             server.ehlo()
