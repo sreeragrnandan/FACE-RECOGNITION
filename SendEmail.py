@@ -13,7 +13,7 @@ while 1:
         print(Featched_id[0][0])
         obsID = Featched_id[0][0]
 
-        retriveMAIL = "SELECT contact_id FROM email WHERE id=(SELECT max(id) FROM email);"
+        retriveMAIL = "SELECT contact_id FROM contacts_email WHERE id=(SELECT max(id) FROM email);"
         cursor.execute(retriveMAIL)
         Featched_email = cursor.fetchall()
         print(Featched_email[0][0])
@@ -57,7 +57,7 @@ while 1:
                 print ('error sending mail')
 
             server.quit()
-            cursor.execute("INSERT INTO email (contact_id) VALUES( %s );",(obsID))
+            cursor.execute("INSERT INTO contacts_email (contact_id) VALUES( %s );",(obsID))
 
         else:
             print ('email already sent')
