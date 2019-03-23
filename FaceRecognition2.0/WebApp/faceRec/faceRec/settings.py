@@ -26,17 +26,10 @@ SECRET_KEY = '_nm#_7qzr$gvzzo1s2)f-&ue4lxxs!6+5=r956(9j=tsvfx12*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#GMAIL CONNECTION
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'facerecogni2k18@gmail.com'
-EMAIL_HOST_PASSWORD = 'face@123'
-EMAIL_PORT = 587
-#GMAIL CONNECTION !
+
 
 # Application definition
-ALLOWED_HOSTS = ['192.168.8.100']
+# ALLOWED_HOSTS = ['192.168.8.100','192.168.43.60']
 INSTALLED_APPS = [
     'contacts',
     'django.contrib.admin',

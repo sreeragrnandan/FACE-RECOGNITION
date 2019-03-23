@@ -1,7 +1,7 @@
 import face_recognition
 import cv2
 import pymysql
-import re
+
 
 #database connection
 connection = pymysql.connect(host="localhost", port=3307 ,user="root",passwd="",database="face_recognition" )
@@ -100,7 +100,7 @@ while True:
             
             Featched_name = cursor.fetchall()
             obsName = ','.join(map(','.join,Featched_name))
-            camid = "c10"
+            camid = "c1"
             retriveCAM = "SELECT cam FROM contacts_contact WHERE id=(SELECT max(id) FROM contacts_contact);"
             cursor.execute(retriveCAM)
             Featched_cam = cursor.fetchall()
